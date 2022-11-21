@@ -7,17 +7,20 @@ const finalMessage = document.getElementById('final-message');
 
 const figureParts = document.querySelectorAll('.figure-part');
 
-// let fectchedWords = [];
-// let selectedWord = "";
+let fectchedWords = [];
+let selectedWord = "";
 // fetch("https://random-word-api.herokuapp.com/all")
 //     .then(res => res.json())
 //     .then(data => {
 //         fectchedWords = data
 //     });
 
+async function main() {
+    
+}
 
 
-const words=['programming','baking','supermarket','fishing','air','filter','today','news'];
+const words = ['programming','baking','supermarket','fishing','air','filter','today','news'];
 selectedWord = words[Math.floor(Math.random() * words.length)];
 
 const correctLetters = [];
