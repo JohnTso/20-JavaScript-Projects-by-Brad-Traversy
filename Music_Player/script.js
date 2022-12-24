@@ -69,7 +69,17 @@ function nextSong() {
 // update progress
 function updateProgress(e) {
     const { duration, currentTime } = e.srcElement;
-    console.log(duration, currentTime);
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
+}
+
+// set progress bar
+function setProgress(e) {
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+
+    audio.currentTime = duration * (clickX / width);
 }
 
 // event listeners
@@ -90,3 +100,8 @@ nextBtn.addEventListener("click", nextSong);
 
 // time/song update progress
 audio.addEventListener("timeupdate", updateProgress);
+
+// click on progress bar
+progressContainer.addEventListener("click", setProgress);
+
+audio.addEventListener("ended", nextSong);
